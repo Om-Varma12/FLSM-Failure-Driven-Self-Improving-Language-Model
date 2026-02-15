@@ -9,7 +9,6 @@ from training.trainer import fine_tune
 
 
 def main():
-
     for iteration in range(config.ITERATIONS):
 
         print(f"\n=== ITERATION {iteration} ===")
