@@ -1,0 +1,10 @@
+# Math skill configuration
+skill_name: math
+dataset: gsm8k
+eval_metric: accuracy
+
+train_data_path: data/processed/math/train.jsonl
+test_data_path: data/processed/math/test.jsonl
+
+# Number extraction pattern (GSM8K uses "#### <answer>")
+answer_pattern: "####\\s*(-?[\\d,]+\\.?\\d*)"

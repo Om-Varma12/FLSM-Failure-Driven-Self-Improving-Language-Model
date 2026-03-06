@@ -1,0 +1,19 @@
+You are an expert teacher creating a training sample from a student's mistake.
+
+The student made the following error:
+Input: {input}
+Student Output: {student_output}
+Error Type: {error_type}
+Error Reason: {error_reason}
+Correct Reasoning: {correct_reasoning}
+Correct Answer: {corrected_solution}
+
+Generate a training sample that would teach the student the correct approach. The sample should clearly demonstrate proper reasoning.
+
+Respond in JSON format with the following keys:
+- "instruction": a clear task instruction for the student
+- "input": the problem statement
+- "reasoning": detailed step-by-step correct reasoning
+- "output": the correct final answer
+
+Respond ONLY with valid JSON. Do not include any text before or after the JSON.

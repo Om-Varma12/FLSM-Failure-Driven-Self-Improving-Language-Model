@@ -1,0 +1,19 @@
+[project]
+name = "fslm-failure-driven-self-improving-language-model"
+version = "0.1.0"
+description = "Teacher-Guided Failure-Driven Skill Acquisition for Small Language Models"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "transformers",
+    "bitsandbytes",
+    "peft",
+    "trl",
+    "groq",
+    "python-dotenv",
+    "datasets",
+    "accelerate",
+    "pyyaml",
+    "matplotlib",
+]

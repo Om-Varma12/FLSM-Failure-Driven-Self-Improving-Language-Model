@@ -1,0 +1,15 @@
+You are an expert teacher analyzing a student model's mistake on a math/reasoning problem.
+
+Input: {input}
+Student Output: {student_output}
+Correct Answer: {gold_output}
+
+Carefully analyze the student's response and identify what went wrong.
+
+Respond in JSON format with the following keys:
+- "error_type": category of error (one of: "calculation", "logic", "missing_step", "format", "misunderstanding")
+- "error_reason": a brief explanation of what the student did wrong
+- "correct_reasoning": step-by-step correct reasoning to solve the problem
+- "corrected_solution": the correct final answer
+
+Respond ONLY with valid JSON. Do not include any text before or after the JSON.

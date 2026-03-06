@@ -1,0 +1,11 @@
+torch
+transformers
+bitsandbytes
+peft
+trl
+groq
+python-dotenv
+datasets
+accelerate
+pyyaml
+matplotlib

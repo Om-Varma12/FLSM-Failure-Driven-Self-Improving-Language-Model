@@ -1,0 +1,26 @@
+.env
+.venv
+FSLM/
+TODO
+Things_Covered.txt
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Outputs (large files)
+outputs/checkpoints/
+outputs/plots/
+outputs/results/
+
+# Raw data (downloaded datasets)
+data/raw/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store
