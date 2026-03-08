@@ -29,7 +29,7 @@ You pick a skill (like math), run the pipeline, and the model improves itself ov
 Clone the repo and install all required packages:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Om-Varma12/FLSM-Failure-Driven-Self-Improving-Language-Model.git
 cd FSLM-Failure-Driven-Self-Improving-Language-Model
 pip install -r requirements.txt
 ```

@@ -35,16 +35,17 @@ def fine_tune(
         learning_rate=learning_rate,
         logging_steps=10,
         save_strategy="epoch",
-        fp16=True,
+        fp16=False,
+        dataset_text_field="text",
+        max_length=max_seq_length,
     )
 
     trainer = SFTTrainer(
         model=model,
         train_dataset=dataset,
         args=sft_config,
+        processing_class=tokenizer,
         peft_config=lora_config,
-        max_seq_length=max_seq_length,
-        dataset_text_field="text",
     )
 
     trainer.train()

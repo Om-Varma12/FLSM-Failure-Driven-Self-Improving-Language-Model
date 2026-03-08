@@ -1,0 +1,108 @@
+(torch_env) PS D:\STUDY\PROJECTS\FSLM-Failure-Driven-Self-Improving-Language-Model> python -m scripts.run_experiment
+Skill: math
+Student model: unsloth/Llama-3.2-3B-Instruct-bnb-4bit
+Iterations: 3
+
+Loading student model...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+C:\Users\Acer\miniconda3\envs\torch_env\lib\site-packages\transformers\quantizers\auto.py:250: UserWarning: You passed `quantization_config` or equivalent parameters to `from_pretrained` but the model you're loading already has a `quantization_config` attribute. The `quantization_config` from the model will be used.
+  warnings.warn(warning_msg)
+Loading weights: 100%|███████████████████████████████████████████████| 254/254 [00:01<00:00, 235.76it/s, Materializing param=model.norm.weight]
+Train samples: 30, Test samples: 20
+
+--- Baseline Evaluation ---
+Baseline accuracy: 60.0%
+
+============================================================
+ITERATION 1
+============================================================
+
+[Step 1] Student attempting 30 training problems...
+  Training accuracy: 90.0% (3 failures)
+
+[Step 2] Teacher analyzing 3 failures...
+  Failures saved to data\failure_bank\math\iter_1.jsonl
+
+[Step 3] Generating training samples from failures...
+  Generated 3 training samples
+
+[Step 4] Fine-tuning student model...
+Adding EOS to train dataset: 100%|██████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 1001.11 examples/s]
+Tokenizing train dataset: 100%|██████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 400.50 examples/s]
+Truncating train dataset: 100%|█████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 1191.79 examples/s]
+{'train_runtime': '9.331', 'train_samples_per_second': '0.965', 'train_steps_per_second': '0.322', 'train_loss': '1.727', 'entropy': '1.096', 'num_tokens': '2526', 'mean_token_accuracy': '0.708', 'epoch': '3'}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:09<00:00,  3.11s/it]
+  Checkpoint saved to outputs/checkpoints/math/iter_1
+
+[Step 5] Evaluating on test set (20 samples)...
+  Test accuracy: 55.0%
+  Checkpoint saved: outputs\checkpoints\math\pipeline_state.json
+
+============================================================
+ITERATION 2
+============================================================
+
+[Step 1] Student attempting 30 training problems...
+  Training accuracy: 83.3% (5 failures)
+
+[Step 2] Teacher analyzing 5 failures...
+  Failures saved to data\failure_bank\math\iter_2.jsonl
+
+[Step 3] Generating training samples from failures...
+  Generated 5 training samples
+
+[Step 4] Fine-tuning student model...
+C:\Users\Acer\miniconda3\envs\torch_env\lib\site-packages\peft\mapping_func.py:72: UserWarning: You are trying to modify a model with PEFT for a second time. If you want to reload the model with a different config, make sure to call `.unload()` before.
+  warnings.warn(
+C:\Users\Acer\miniconda3\envs\torch_env\lib\site-packages\peft\tuners\tuners_utils.py:285: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+Adding EOS to train dataset: 100%|██████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 1667.72 examples/s]
+Tokenizing train dataset: 100%|██████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 664.71 examples/s]
+Truncating train dataset: 100%|█████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 2503.46 examples/s] 
+{'train_runtime': '12.68', 'train_samples_per_second': '1.183', 'train_steps_per_second': '0.473', 'train_loss': '1.678', 'entropy': '1.194', 'num_tokens': '4017', 'mean_token_accuracy': '0.6918', 'epoch': '3'}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:12<00:00,  2.11s/it] 
+  Checkpoint saved to outputs/checkpoints/math/iter_2
+
+[Step 5] Evaluating on test set (20 samples)...
+  Test accuracy: 65.0%
+  Checkpoint saved: outputs\checkpoints\math\pipeline_state.json
+
+============================================================
+ITERATION 3
+============================================================
+
+[Step 1] Student attempting 30 training problems...
+  Training accuracy: 76.7% (7 failures)
+
+[Step 2] Teacher analyzing 7 failures...
+Groq API error (attempt 1): Connection error.. Retrying in 2s...
+Groq API error (attempt 2): Connection error.. Retrying in 4s...
+  Failures saved to data\failure_bank\math\iter_3.jsonl
+
+[Step 3] Generating training samples from failures...
+  Generated 7 training samples
+
+[Step 4] Fine-tuning student model...
+C:\Users\Acer\miniconda3\envs\torch_env\lib\site-packages\peft\mapping_func.py:72: UserWarning: You are trying to modify a model with PEFT for a second time. If you want to reload the model with a different config, make sure to call `.unload()` before.
+  warnings.warn(
+C:\Users\Acer\miniconda3\envs\torch_env\lib\site-packages\peft\tuners\tuners_utils.py:285: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!
+  warnings.warn(
+Adding EOS to train dataset: 100%|██████████████████████████████████████████████████████████████████████| 7/7 [00:00<00:00, 3485.71 examples/s]
+Tokenizing train dataset: 100%|██████████████████████████████████████████████████████████████████████████| 7/7 [00:00<00:00, 688.15 examples/s]
+Truncating train dataset: 100%|█████████████████████████████████████████████████████████████████████████| 7/7 [00:00<00:00, 3200.71 examples/s] 
+{'train_runtime': '22.66', 'train_samples_per_second': '0.927', 'train_steps_per_second': '0.265', 'train_loss': '1.637', 'entropy': '1.164', 'num_tokens': '5973', 'mean_token_accuracy': '0.7175', 'epoch': '3'}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:22<00:00,  3.78s/it] 
+  Checkpoint saved to outputs/checkpoints/math/iter_3
+
+[Step 5] Evaluating on test set (20 samples)...
+  Test accuracy: 55.0%
+  Checkpoint saved: outputs\checkpoints\math\pipeline_state.json
+
+Stage                  Accuracy    Correct     Failed
+----------------------------------------------------
+Baseline                 60.0%         12          8
+Iteration 1              55.0%         11          9
+Iteration 2              65.0%         13          7
+Iteration 3              55.0%         11          9
+
+Accuracy plot saved to outputs/plots/math_accuracy.png
